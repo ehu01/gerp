@@ -31,65 +31,65 @@ as we saw fit which we would then search for a specified string.
 FILES:
 
 main.cpp
-    Program driver. Builds the hash table, takes user queries, and searches.
+  - Program driver. Builds the hash table, takes user queries, and searches.
 
 HashTable.h
-    Interface of HashTable class. Includes definition of the PermutationNode
+  - Interface of HashTable class. Includes definition of the PermutationNode
     struct.
 
 HashTable.cpp
-    Implementation of HashTable class. Contains functionality for traversing
+  - Implementation of HashTable class. Contains functionality for traversing
     file tree, parsing files, inserting strings into hash table, and searching
     for strings in hash table.
 
 StringNode.h
-    Interface of StringNode class.
+  - Interface of StringNode class.
 
 StringNode.cpp
-    Implementation of the StringNode class. Contatins functionality for getting
+  - Implementation of the StringNode class. Contatins functionality for getting
     and setting the word member variable and various parts of the filenums and 
     linenums vectors.
 
 FSTree.h
-    PROVIDED AS STARTER CODE: Interface of FSTree class which builds a file
+  - PROVIDED AS STARTER CODE: Interface of FSTree class which builds a file
     tree when given a directory. 
 
 DirNode.h
-    PROVIDED AS STARTER CODE: Interface of DirNode class, used when traversing
+  - PROVIDED AS STARTER CODE: Interface of DirNode class, used when traversing
     file tree.
 
 
 DATA STRUCTURES:
 
 HashTable
-    * 2-D vector table: vector of vectors
-    * collisions are handled by pushing to the back of the inner vector at the
+    - 2-D vector table: vector of vectors
+    - collisions are handled by pushing to the back of the inner vector at the
       hashed index
-    * searching time is fast this way -- ideally constant time, if chains are 
+    - searching time is fast this way -- ideally constant time, if chains are 
       short
-    * load factor used is 0.8
-    * each string is converted to lowercase and hashed to get key
-    * value is a struct which holds the lowercase version of the string as well
+    - load factor used is 0.8
+    - each string is converted to lowercase and hashed to get key
+    - value is a struct which holds the lowercase version of the string as well
       as a vector containing every unique case permutation of the string which
       was encountered in the form of a StringNode object
 
 StringNode
-    * contains two parallel vectors of integers
-        * filenums holds each # file the string appears in
-        * linenums holds each # line the string appears in
-    * a filenum and a linenum at the same index act as a coordinate pair which
+    - contains two parallel vectors of integers
+        - filenums holds each # file the string appears in
+        - linenums holds each # line the string appears in
+    - a filenum and a linenum at the same index act as a coordinate pair which
       is used to find the the exact file and line they refer to in the 
       file_lines data structure
 
 file_lines
-    * 2-D vector table: vector of vectors
-    * stores file paths and file lines
-    * each inner vector holds, at the 0th index, the full file name
-        * at each following index, it holds that number line of that file
-    * for example, if StringNode x appears in file number 4 and line number 8,
+    - 2-D vector table: vector of vectors
+    - stores file paths and file lines
+    - each inner vector holds, at the 0th index, the full file name
+        - at each following index, it holds that number line of that file
+    - for example, if StringNode x appears in file number 4 and line number 8,
       looking at file_lines[4][8] would get the full line and 
       looking at file_lines[4][0] would get the full file path
-        * this way, each line and path is not stored more than once.
+        - this way, each line and path is not stored more than once.
 
 
 TESTING:
