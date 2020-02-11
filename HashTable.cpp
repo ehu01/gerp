@@ -279,7 +279,7 @@ bool HashTable::search(string query, string directory, ofstream &out)
  *             (bool), file stream
  * returns:    nothing
  * does:       searches hash table for instances of word, prints them out
- * notes:      this function slightly longer due to extra line spacing for ease
+ * notes:      this function is slightly longer due to extra line spacing for ease
  *             of reading
  */
 void HashTable::searchTable(string original, string lower, string org_dir, 
